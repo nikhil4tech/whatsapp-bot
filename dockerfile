@@ -1,8 +1,7 @@
 FROM node:18
 
-# Install required dependencies for Puppeteer / Chromium
+# Install dependencies required by Chromium (used by puppeteer-core / whatsapp-web.js)
 RUN apt-get update && apt-get install -y \
-    wget \
     ca-certificates \
     fonts-liberation \
     libappindicator3-1 \
@@ -18,7 +17,15 @@ RUN apt-get update && apt-get install -y \
     libxcomposite1 \
     libxdamage1 \
     libxrandr2 \
+    libdrm2 \
+    libgbm1 \
+    libxshmfence1 \
+    libxext6 \
+    libxfixes3 \
+    libglib2.0-0 \
+    libu2f-udev \
     xdg-utils \
+    wget \
     --no-install-recommends \
  && rm -rf /var/lib/apt/lists/*
 
